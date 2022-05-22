@@ -35,20 +35,20 @@ public class Main {
         for (int i = 0; i <= (SIZE * SIZE); ) {
             humanTurrn();
             if (whoISwiner(map)) {
-                System.out.println("human wins");
+                System.out.println("___human wins____");
                 printMap();
                 break;
             } else {
                 i++;
                 if (i == (SIZE * SIZE)) {
-                    System.out.println("нечья");
+                    System.out.println("____нечья____");
                     printMap();
                     break;
                 }
             }
             aiTurrn();
             if (whoISwiner(map)) {
-                System.out.println("AI wins");
+                System.out.println("____AI wins____");
                 printMap();
                 break;
             } else {
@@ -119,10 +119,12 @@ public class Main {
         for (int i=0; i<SIZE; i++) {
             for (int g = 0; g < SIZE; g++) {
                 iter++;
+                int aiBrainsI = aiBrains(i, g, 'i');
+                int aiBrainsG = aiBrains(i, g, 'g');
                 if ((map[i][g] == DOT_X) || (map[i][g] == DOT_O)) {
-                    if (aiBrains(i, g, 'i') != 0 || aiBrains(i, g, 'g') != 0) {
-                        map[i + aiBrains(i, g, 'i')][g + aiBrains(i, g, 'g')] = DOT_O;
-                        return map[i + aiBrains(i, g, 'i')][g + aiBrains(i, g, 'g')];
+                    if (aiBrainsI != 0 || aiBrainsG != 0) {
+                        map[i + aiBrainsI][g + aiBrainsG] = DOT_O;
+                        return map[i + aiBrainsI][g + aiBrainsG];
                     }
                 }
                 if (iter == SIZE * SIZE) {
