@@ -119,10 +119,7 @@ public class Main {
         for (int i=0; i<SIZE; i++) {
             for (int g = 0; g < SIZE; g++) {
                 iter++;
-                System.out.println("iter № " + iter);
                 if ((map[i][g] == DOT_X) || (map[i][g] == DOT_O)) {
-                    System.out.println("index i:  "+ aiBrains(i, g, 'i'));
-                    System.out.println("index g:  "+ aiBrains(i, g, 'g'));
                     if (aiBrains(i, g, 'i') != 0 || aiBrains(i, g, 'g') != 0) {
                         map[i + aiBrains(i, g, 'i')][g + aiBrains(i, g, 'g')] = DOT_O;
                         return map[i + aiBrains(i, g, 'i')][g + aiBrains(i, g, 'g')];
