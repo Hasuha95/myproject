@@ -19,6 +19,7 @@ public class Main {
 
     public static void main(String[] args) {
         initMap();
+        printMap();
         for (int i = 0; i <= (SIZE * SIZE); ) {
             humanTurrn();
             if (whoISwiner(map)) {
@@ -29,6 +30,7 @@ public class Main {
                 i++;
                 if (i == (SIZE * SIZE)) {
                     System.out.println("нечья");
+                    printMap();
                     break;
                 }
             }
@@ -51,7 +53,7 @@ public class Main {
         for (int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
                 map[i][j] = DOT_EMPTY;
-                System.out.print(map[i][j] + "  ");
+//                System.out.print(map[i][j] + "  ");
             }
             System.out.println();
         }
@@ -100,13 +102,16 @@ public class Main {
 //                             ход компьютера.
     public static char aiTurrn() {
         int x, y;
-        int iter=1;
+        int iter=0;
 
         for (int i=0; i<SIZE; i++) {
             for (int g = 0; g < SIZE; g++) {
                 iter++;
+                System.out.println("iter № " + iter);
                 if ((map[i][g] == DOT_X) || (map[i][g] == DOT_O)) {
-                    if (aiBrains(i, g, 'í') != 0 || aiBrains(i, g, 'g') != 0) {
+                    System.out.println("index i:  "+ aiBrains(i, g, 'i'));
+                    System.out.println("index g:  "+ aiBrains(i, g, 'g'));
+                    if (aiBrains(i, g, 'i') != 0 || aiBrains(i, g, 'g') != 0) {
                         map[i + aiBrains(i, g, 'i')][g + aiBrains(i, g, 'g')] = DOT_O;
                         return map[i + aiBrains(i, g, 'i')][g + aiBrains(i, g, 'g')];
                     }
@@ -171,7 +176,7 @@ public class Main {
         }
         if (I > SIZE - 2 & G > SIZE - 2) {
             if (map[I][G] == map[I - 1][G - 1] & map[I - 2][G - 2] == DOT_EMPTY) {
-                return twoStep;
+                return twoStepMinus;
             }
             if (map[I][G] == map[I - 2][G - 2] & map[I - 1][G - 1] == DOT_EMPTY) {
                 return oneStep;
@@ -192,6 +197,16 @@ public class Main {
                 }
                 if (index == 'i') {
                     return oneStep;
+                }
+            }
+        }
+        if (I > SIZE - 2 & G < SIZE - 2) {
+            if (map[I][G] == map[I - 1][G + 1] & map[I - 2][G + 2] == DOT_EMPTY) {
+                if (index == 'g') {
+                    return twoStep;
+                }
+                if (index == 'i') {
+                    return twoStepMinus;
                 }
             }
         }
