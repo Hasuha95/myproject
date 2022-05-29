@@ -1,4 +1,5 @@
 package lesson1;
+import javax.sound.midi.Soundbank;
 import java.util.Scanner;
 
 public class Main {
@@ -6,6 +7,8 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner riad = new Scanner(System.in);
+
+
         System.out.println("print a=");
         float a = riad.nextInt();
         System.out.println("print b=");
