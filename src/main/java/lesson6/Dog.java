@@ -2,14 +2,15 @@ package lesson6;
 
 public class Dog extends Animal {
     private static int dogAmount;
-    public Dog(String name) {
-        super(name);
+
+    public Dog(String name, int restriction) {
+        super(name, restriction);
         dogAmount++;
     }
 
     public void runing(int x){
-        if (x>500){
-            System.out.println("Пёсик не может так далеко бежать :(");
+        if (x>restriction){
+            System.out.println("Пёсик не может бежать " + x + " метров" + " это слишком далеко для него :(");
         } else {
             System.out.println(name + " пробежал " + x + " метров");
         }
