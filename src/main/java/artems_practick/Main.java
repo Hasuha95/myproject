@@ -8,6 +8,7 @@ public class Main {
 
 
 
+/*
 
         Animal_to_run[] animals = new Animal_to_run[2];
         animals[0] = new Horse("Gerda", 55, 55);
@@ -29,8 +30,28 @@ public class Main {
 
 
 
+*/
+    User iven = new User(" ivan", " 30");
+    User iven2 = new User(" ivan2", " 30");
+    User iven3 = new User(" ivan3", " 30");
+    User iven4 = new User(" ivan4", " 30");
+    User iven5 = new User(" ivan5", " 30");
+    User iven6 = new User(" ivan6", " 30");
+    User iven7 = new User(" ivan7", " 30");
 
 
+    UserRep userRep = new UserRep();
+    userRep.addUser(iven);
+    userRep.addUser(iven2);
+    userRep.addUser(iven3);
+    userRep.addUser(iven4);
+    userRep.addUser(iven5);
+    userRep.addUser(iven6);
+    userRep.addUser(iven7);
+
+
+        System.out.println(userRep.toString() + userRep.getAmount());
     }
-    
+
+
 }
